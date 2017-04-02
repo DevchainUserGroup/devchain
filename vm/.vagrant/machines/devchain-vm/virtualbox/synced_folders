@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/ubuntu/shared":{"nfs":true,"nfs_udp":false,"create":true,"guestpath":"/home/ubuntu/shared","hostpath":"C:/Users/cyril/Work/fintech/devchain/vm/shared","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/cyril/Work/fintech/devchain/vm","disabled":false,"__vagrantfile":true}}}
