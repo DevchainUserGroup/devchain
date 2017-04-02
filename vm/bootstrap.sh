@@ -7,7 +7,7 @@ sudo apt-get update
 sudo apt-get install -y docker-engine
 
 DOCKER_RUNNING=`sudo systemctl status docker | grep 'Main PID'`
-if [ "x"$DOCKER_RUNNING != "x" ];
+if [ "x$DOCKER_RUNNING" != "x" ];
 then
   echo "Docker is installed and running"
 else
@@ -20,14 +20,16 @@ sudo usermod -aG docker $(whoami)
 
 echo "Creating Geth image"
 mkdir geth-container
-cp -Rp ~/shared/docker/geth/* .
 cd geth-container
+cp -Rp /home/ubuntu/shared/docker/geth/* .
 sudo docker build -t geth-container -f gethDockerfile .
+sudo docker run -d geth-container
 cd ..
 
 echo "Creating Truffle image"
-mkdir truffle-contrainer
-cp -Rp ~/shared/docker/truffle/* .
-cd truffle-contrainer
+mkdir truffle-container
+cd truffle-container
+cp -Rp /home/ubuntu/shared/docker/truffle/* .
 sudo docker build -t truffle-container -f truffleDockerfile .
+chown -R ubuntu:ubuntu
 cd ..
