@@ -35,6 +35,9 @@ The environment creates a virtualbox VM using vagrant and run a docker
 *Connect to the truffle docker container with sh*
 > sudo docker run -it truffle-container busybox sh
 
+*Connect to a docker with sh *
+> sudo docker exec -i -t <docker_id> sh
+
 7. Usefull truffle command
 
 *Init a project*
