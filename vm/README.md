@@ -20,3 +20,28 @@ The environment creates a virtualbox VM using vagrant and run a docker
 
 5. Connect to the VM
 > vagrant ssh
+
+6. Usefull docker command
+
+*List docker image*
+> sudo docker image list
+
+*List docker container*
+> sudo docker container list
+
+*Start Geth docker*
+> sudo docker run geth-container
+
+*Connect to the truffle docker container with sh*
+> sudo docker run -it truffle-container busybox sh
+
+7. Usefull truffle command
+
+*Init a project*
+> truffle init
+
+*Run test*
+> truffle test
+
+*Serve file content"
+> truffle serve
