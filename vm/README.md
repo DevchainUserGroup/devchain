@@ -10,7 +10,7 @@ The environment creates a virtualbox VM using vagrant and run a docker
 2. Install [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 
 3. Checkout this repository
-> git clone https://github.com/sirhill/devchain
+> git clone https://github.com/DevchainUserGroup/devchain.git
 
 4. Build the VM
 > cd devchain/vm
