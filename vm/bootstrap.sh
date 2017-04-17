@@ -23,7 +23,7 @@ mkdir geth-container
 cd geth-container
 cp -Rp /home/ubuntu/shared/docker/geth/* .
 sudo docker build -t geth-container -f gethDockerfile .
-sudo docker run -d geth-container
+sudo docker run -d -v /home/ubuntu/projects:/projects geth-container
 cd ..
 chown -R ubuntu:ubuntu geth-container
 
