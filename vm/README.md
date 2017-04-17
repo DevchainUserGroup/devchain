@@ -33,7 +33,7 @@ The environment creates a virtualbox VM using vagrant and run a docker
 > sudo docker run geth-container
 
 *Start and Connect to the truffle docker container with sh*
-> sudo docker run -it truffle-container busybox sh
+> sudo docker run -v /home/ubuntu/projects:/projects -it truffle-container busybox sh
 
 *Connect to an existing docker container with sh *
 > sudo docker exec -i -t <docker_id> sh
