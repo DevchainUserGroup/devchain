@@ -21,16 +21,16 @@ sudo usermod -aG docker $(whoami)
 echo "Creating Geth image"
 mkdir geth-container
 cd geth-container
-cp -Rp /home/ubuntu/shared/docker/geth/* .
+cp -Rp /home/ubuntu/share/environment/vm/shared/docker/geth/* .
 sudo docker build -t geth-container -f gethDockerfile .
-sudo docker run -d -v /home/ubuntu/projects:/projects geth-container
+sudo docker run -d -v /home/ubuntu/share:/share geth-container
 cd ..
 chown -R ubuntu:ubuntu geth-container
 
 echo "Creating Truffle image"
 mkdir truffle-container
 cd truffle-container
-cp -Rp /home/ubuntu/shared/docker/truffle/* .
+cp -Rp /home/ubuntu/share/environment/vm/shared/docker/truffle/* .
 sudo docker build -t truffle-container -f truffleDockerfile .
 cd ..
 chown -R ubuntu:ubuntu truffle-container
