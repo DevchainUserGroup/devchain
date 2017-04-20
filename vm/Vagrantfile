@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder "../../", "/home/ubuntu/share"
 
   config.vm.provider "virtualbox" do |v|
-    v.name = "truffle-vm"
+    v.name = "devchain-vm"
     v.memory = 2048
     v.cpus = 2
   end
