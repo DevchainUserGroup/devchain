@@ -29,8 +29,11 @@ The environment creates a virtualbox VM using vagrant and run a docker
 *List docker container*
 > sudo docker container list
 
-*Start Geth docker*
+*Start Geth docker (with default network id)*
 > sudo docker run geth-container
+
+*Start Geth docker with specific network id*
+> sudo docker run -e "network_id=2" geth-container
 
 *Start and Connect to the truffle docker container with sh*
 > sudo docker run -v /home/ubuntu/share:/share -it truffle-container busybox sh
