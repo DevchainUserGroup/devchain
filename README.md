@@ -1,10 +1,9 @@
 
-# Devchain User Group Repository
+# Devchain User Group Environmen Repository
 
-## Presentation
+## Description
 
-This group is a community dedicated to make real use case for Blockchain
-a reality.
+Contains the full environment provided to make it easier for the Devchain developer
 
 ## Index
 
