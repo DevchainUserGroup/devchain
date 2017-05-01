@@ -10,10 +10,10 @@ The environment creates a virtualbox VM using vagrant and run a docker
 2. Install [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 
 3. Checkout this repository
-> git clone https://github.com/DevchainUserGroup/devchain.git
+> git clone https://github.com/DevchainUserGroup/environment.git
 
 4. Build the VM
-> cd devchain/vm
+> cd environment/vm
 > vagrant up
 
 **Speed up :** For *Hands On* You may want to copy locally the ubuntu box (274Mo) in ~\.vagrant.d\boxes
