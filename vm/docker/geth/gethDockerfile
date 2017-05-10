@@ -1,13 +1,13 @@
 #GethDockerfile
-FROM ethereum/client-go
+FROM ethereum/client-go:release-1.6
+LABEL name=geth
 
-CMD "echo" "Configuring the image"
-RUN apt-get install -y bash vim
+# configure container
+RUN apk add --update bash emacs-nox heimdal-telnet
 
 EXPOSE 10000 10001
 
-ADD ./geth*json ./
-ADD ./*.sh ./
+ADD ./geth*json ./*.sh ./
 
 RUN bash ./gethInitNode.sh
 RUN chmod +x gethStartNode.sh
