@@ -1,7 +1,9 @@
-build-geth:
-	@cd vm/docker/geth; docker build -t geth-devchain -f gethDockerfile .
+### Geth ###
 
-# runs the container with a default entrypoint
+build-geth:
+	@cd docker/geth; docker build -t geth-devchain -f gethDockerfile .
+
+# runs the container with a default entrypoint: a service mananger
 run-geth:
 	@docker run -v share:/share geth-devchain
 
@@ -12,6 +14,12 @@ join-geth:
 # runs the container and start bash session (without starting the Ethereum client)
 bash-geth:
 	@docker run -it -v share:/share --entrypoint "/bin/bash" geth-devchain
+
+
+### Truffle ###
+
+build-truffle:
+	@cd docker/truffle; docker build -t truffle-devchain -f truffleDockerfile .
 
 
 clean-container:

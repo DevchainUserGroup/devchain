@@ -6,12 +6,10 @@ LABEL name=geth
 STOPSIGNAL HUP
 
 # configure container
-RUN apk add --update bash emacs-nox heimdal-telnet shadow runit \
+RUN apk add --update bash vim emacs-nox heimdal-telnet shadow runit \
 	nodejs git openssl  # for intelligence api
-# Add services runit scripts
-COPY sv /etc/service
-
 RUN useradd -m eth
+RUN passwd -d eth
 USER eth
 WORKDIR /home/eth
 RUN mkdir -p log/geth log/ethnetintel
@@ -20,5 +18,8 @@ RUN bash ./init.sh
 
 
 USER root
+# Add services runit scripts
+COPY service /etc/service
+
 EXPOSE 10000 10001 10002
-ENTRYPOINT [ "/sbin/runsvdir" "/etc/sv" ]
+ENTRYPOINT [ "/sbin/runsvdir", "/etc/service" ]
