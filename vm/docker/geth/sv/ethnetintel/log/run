@@ -1,0 +1,2 @@
+#!/bin/sh
+exec chpst -u eth -U eth svlogd -tt /home/eth/log/ethnetintel

@@ -1,0 +1,2 @@
+#!/bin/sh
+exec chpst -u eth svlogd -tt /home/eth/log/geth
