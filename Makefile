@@ -7,6 +7,9 @@ build-geth:
 run-geth:
 	@docker run -v share:/share geth-devchain
 
+stop-geth:
+	@docker stop `docker ps | grep " geth-devchain " | awk '{print $$1}'`
+
 # joins the running container
 join-geth:
 	@docker exec -it `docker ps | grep " geth-devchain " | awk '{print $$1}'` /bin/bash
