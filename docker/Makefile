@@ -1,7 +1,7 @@
 ### Geth ###
 
 build-geth:
-	@cd docker/geth; docker build -t geth-devchain -f gethDockerfile .
+	@cd geth; docker build -t geth-devchain -f gethDockerfile .
 
 # runs the container with a default entrypoint: a service mananger
 run-geth:
@@ -22,7 +22,7 @@ bash-geth:
 ### Truffle ###
 
 build-truffle:
-	@cd docker/truffle; docker build -t truffle-devchain -f truffleDockerfile .
+	@cd truffle; docker build -t truffle-devchain -f truffleDockerfile .
 
 
 clean-container:

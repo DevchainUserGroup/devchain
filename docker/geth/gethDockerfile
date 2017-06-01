@@ -1,25 +1,26 @@
 #GethDockerfile
-FROM ethereum/client-go:release-1.6
+FROM ethereum/client-go:v1.6.3
 LABEL name=geth
 
 # This is to allow runit stop gracefully
 STOPSIGNAL HUP
 
+ENTRYPOINT [ "/sbin/runsvdir", "/etc/service" ]
+RUN ln -s /usr/local/bin/geth /usr/bin/
 # configure container
-RUN apk add --update bash vim emacs-nox heimdal-telnet shadow runit \
+RUN apk add --update bash zsh vim emacs-nox heimdal-telnet shadow runit \
 	nodejs git openssl  # for intelligence api
 RUN useradd -m eth
 RUN passwd -d eth
+
 USER eth
 WORKDIR /home/eth
 RUN mkdir -p log/geth log/ethnetintel
 COPY ./geth*json ./*.sh /home/eth/
 RUN bash ./init.sh
 
-
 USER root
 # Add services runit scripts
 COPY service /etc/service
 
 EXPOSE 10000 10001 10002
-ENTRYPOINT [ "/sbin/runsvdir", "/etc/service" ]
