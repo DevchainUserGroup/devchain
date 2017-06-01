@@ -8,7 +8,7 @@ STOPSIGNAL HUP
 ENTRYPOINT [ "/sbin/runsvdir", "/etc/service" ]
 RUN ln -s /usr/local/bin/geth /usr/bin/
 # configure container
-RUN apk add --update bash zsh vim emacs-nox heimdal-telnet shadow runit \
+RUN apk add --update bash zsh vim emacs-nox heimdal-telnet shadow runit less \
 	nodejs git openssl  # for intelligence api
 RUN useradd -m eth
 RUN passwd -d eth
@@ -20,6 +20,8 @@ COPY ./geth*json ./*.sh /home/eth/
 RUN bash ./init.sh
 
 USER root
+RUN chown -R eth:users /home/eth
+RUN chmod +x /home/eth/*sh
 # Add services runit scripts
 COPY service /etc/service
 
