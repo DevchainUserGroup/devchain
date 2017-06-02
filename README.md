@@ -60,6 +60,10 @@ You don't need to install Vagrant, since all setups is based on Docker. All you 
 		1: 2017040499 (default)
 		2: 2017042099
 
+## Usefull geth command
+
++ Find how to manage your wallet at the [Ethereum Wiki](https://github.com/ethereum/go-ethereum/wiki/Managing-your-accounts)
+
 
 ## Usefull truffle command
 
