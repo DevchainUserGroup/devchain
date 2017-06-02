@@ -1,12 +1,31 @@
 #Truffle Docker Image
-FROM node:7.4-alpine
+FROM node:8.0.0-alpine
+LABEL name=truffle
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN apk add --update bash zsh vim emacs-nox less \
+        nodejs git openssl \
+        python python-dev g++ make
 
-RUN apk add -t .gyp --no-cache git python g++ make \
-    && npm install -g truffle@3.2.x \
-    && apk del .gyp
+
+# Install testrpc and Truffle directly from github as PIP and NPM not regularly
+# updated (e.g. make sure we have latest version solc)
+# ethereumjs-testrpc
+WORKDIR /tmp
+RUN git clone https://github.com/ethereumjs/testrpc.git
+WORKDIR /tmp/testrpc
+#RUN npm install -g .
+# Truffle
+WORKDIR /tmp
+RUN git clone https://github.com/ConsenSys/truffle-default-builder.git
+RUN df -h
+WORKDIR /tmp/truffle-default-builder
+#RUN npm install -g .
+WORKDIR /tmp
+RUN git clone https://github.com/ConsenSys/truffle.git
+WORKDIR /tmp/truffle
+#RUN npm install -g .
+
+WORKDIR /home/node
 
 EXPOSE 8080
 ENTRYPOINT []

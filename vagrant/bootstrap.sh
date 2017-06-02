@@ -30,6 +30,8 @@ else
   exit -1
 fi
 
+ln -s share/environment/projects projects
+
 echo "Creating Geth image"
 cd $ENVIRONMENT_DIR
 make build-geth
