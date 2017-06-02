@@ -40,7 +40,7 @@ Vagrant will automatically setup a virtual machine for you.
 Once you have your environment follow
 You don't need to install Vagrant, since all setups is based on Docker. All you need to do is to install `docker` and `make`.
 
-1. Configure your geth node name, edit [./docker/geth/env.sh](./docker/geth/env.sh)
+1. Create a NODENAME file - [./docker/geth/NODENAME](./docker/geth/NODENAME)
 
 2. Build Images:
 		make build-geth

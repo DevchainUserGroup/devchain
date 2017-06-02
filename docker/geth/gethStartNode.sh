@@ -1,9 +1,9 @@
 #!/bin/bash
 # Copyright 2017 - Dechain User Group
 source env.sh
-export NODE_PORT=10000
-export NODE_IP='0.0.0.0'    # your local address you want to bind on
-export NODE_PORT_RPC=10001  # your local port for RPC, default=8545
+export NODE_PORT=10000               # Network listening port (default: 30303)
+export NODE_IP='0.0.0.0'             # your local address you want to bind on
+export NODE_PORT_RPC=$GETH_RPC_PORT  # your local port for RPC, default=8545
 export NETWORK_IDS=(2017042099)
 export NETWORK_ID_=${NETWORK_IDS[0]}
 

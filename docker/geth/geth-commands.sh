@@ -1,3 +1,5 @@
+telnet factory.shinit.net 15000
+
 geth attach 'http://127.0.0.1:10001'
 ledit geth attach 'http://127.0.0.1:10001'
 

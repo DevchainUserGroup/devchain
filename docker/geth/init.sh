@@ -4,12 +4,6 @@ source env.sh
 ETHERBASE=$DATA_DIR/etherbase.txt
 export
 
-if [ "x$NODE_NAME" == "x$HOSTNAME" ]; then
-  echo "Setting node name to $HOSTNAME"
-  mv env.sh env.sh.bak
-  sed -e "s/\$HOSTNAME/$HOSTNAME/" env.sh.bak > env.sh
-fi
-
 echo "Initialisation network $NETWORK_DIR"
 if [ -d $DATA_DIR ]; then
   rm -rf $DATA_DIR
