@@ -17,8 +17,7 @@ RUN npm install -g truffle
 ENV PATH="/home/node/npm-global/bin:${PATH}"
 
 WORKDIR /home/node
-COPY banner.txt /home/node/.banner-truffle.txt    
-RUN echo "cat ./.banner-truffle.txt" > .bashrc      
+COPY ./.inputrc ./.bashrc /home/node/
 
 RUN ln -s /projects /home/node/projects
 

@@ -13,16 +13,15 @@ RUN apk add --update bash zsh vim emacs-nox shadow runit less \
 	nodejs git openssl  # for intelligence api
 RUN useradd -m eth
 RUN passwd -d eth
+COPY ./.inputrc ./.bashrc /root/
 
 USER eth
 WORKDIR /home/eth
-RUN mkdir -p log/geth log/ethnetintel
-COPY banner.txt /home/eth/.banner-geth.txt
-RUN echo "cat ./.banner-geth.txt" > .bashrc
-
 # NOTE: you have to create NODENAME file
 COPY ./NODENAME /home/eth/
-COPY ./geth*json ./*.sh /home/eth/
+COPY ./geth*json ./*.sh ./.inputrc ./.bashrc /home/eth/
+
+RUN mkdir -p log/geth log/ethnetintel
 RUN bash ./init.sh
 
 USER root
