@@ -16,6 +16,7 @@ RUN npm install -g truffle
 ENV PATH="/home/node/npm-global/bin:${PATH}"
 
 WORKDIR /home/node
+RUN ln -s /projects /home/node/projects
 
 EXPOSE 8080
 ENTRYPOINT []

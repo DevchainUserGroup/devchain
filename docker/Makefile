@@ -24,8 +24,12 @@ bash-geth:
 build-truffle:
 	@cd truffle; docker build -t truffle-devchain -f truffleDockerfile .
 
+# runs the container and start bash session
 bash-truffle:
 	@docker run -it -v ${PWD}/../projects:/projects -p 8080:8080 --user 1000 --entrypoint "/bin/bash" truffle-devchain
+
+join-truffle:
+	@docker exec -it `docker ps | grep " truffle-devchain " | awk '{print $$1}'` /bin/bash
 
 clean-container:
 	@docker rm `docker ps --no-trunc -aq`
