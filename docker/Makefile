@@ -1,9 +1,14 @@
-build-geth:
-	@cd vm/docker/geth; docker build -t geth-devchain -f gethDockerfile .
+### Geth ###
 
-# runs the container with a default entrypoint
+build-geth:
+	@cd geth; docker build -t geth-devchain -f gethDockerfile .
+
+# runs the container with a default entrypoint: a service mananger
 run-geth:
 	@docker run -v share:/share geth-devchain
+
+stop-geth:
+	@docker stop `docker ps | grep " geth-devchain " | awk '{print $$1}'`
 
 # joins the running container
 join-geth:
@@ -14,5 +19,14 @@ bash-geth:
 	@docker run -it -v share:/share --entrypoint "/bin/bash" geth-devchain
 
 
+### Truffle ###
+
+build-truffle:
+	@cd truffle; docker build -t truffle-devchain -f truffleDockerfile .
+
+
 clean-container:
 	@docker rm `docker ps --no-trunc -aq`
+
+clean-untag-images:
+	@docker rmi $(docker images | grep "^<none>" | awk "{print $$3}")

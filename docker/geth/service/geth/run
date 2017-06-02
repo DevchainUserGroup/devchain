@@ -5,4 +5,4 @@ cd /home/eth
 #   2017-05-15_11:13:11.59505 INFO [05-15|11:13:11] Disk storage enabled for ethash DAGs     dir=/home/eth/.ethash                    count=2
 #   exec chpst -u eth -U eth bash /home/eth/gethStartNode.sh
 
-exec su -c "bash /home/eth/gethStartNode.sh" eth
+exec su -c "cd /home/eth; bash /home/eth/gethStartNode.sh" eth

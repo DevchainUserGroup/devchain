@@ -1,13 +1,20 @@
 #!/bin/bash
 source env.sh
 ETHERBASE=$DATA_DIR/etherbase.txt
+export
+
+if [ "x$NODE_NAME" == "x$HOSTNAME" ]; then
+  echo "Setting node name to $HOSTNAME"
+  mv env.sh env.sh.bak
+  sed -e "s/\$HOSTNAME/$HOSTNAME/" env.sh.bak > env.sh
+fi
 
 echo "Initialisation network $NETWORK_DIR"
 if [ -d $DATA_DIR ]; then
   rm -rf $DATA_DIR
 fi
 
-/geth --datadir $DATA_DIR init ./gethGenesisBlock.json
+geth --datadir $DATA_DIR init ./gethGenesisBlock.json
 
 cat <<EOF >$DATA_DIR/static-nodes.json
 [
@@ -15,15 +22,13 @@ cat <<EOF >$DATA_DIR/static-nodes.json
 ]
 EOF
 
-
 echo "Creating an etherbase for mining"
 echo -e "password" > $ETHERBASE
-/geth --datadir $DATA_DIR --password $ETHERBASE account new
-
-chmod +x ./gethStartNode.sh
+geth --datadir $DATA_DIR --password $ETHERBASE account new
 
 echo "Setting up eth net intelligence api"
 wget http://github.com/cubedro/eth-net-intelligence-api/archive/master.zip
 unzip master.zip
-cd eth-net-intelligence-api-master
+mv eth-net-intelligence-api-master eth-net-intelligence-api
+cd eth-net-intelligence-api
 npm install
