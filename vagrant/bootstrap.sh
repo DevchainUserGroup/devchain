@@ -31,6 +31,7 @@ else
 fi
 
 ln -s share/environment/projects projects
+ln -s share/environment/docker docker
 
 echo "Creating Geth image"
 cd $ENVIRONMENT_DIR

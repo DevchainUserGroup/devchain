@@ -16,7 +16,7 @@ join-geth:
 
 # runs the container and start bash session (without starting the Ethereum client)
 bash-geth:
-	@docker run -it -v ${PWD}/../projects:/projects --entrypoint "/bin/bash" geth-devchain
+	@docker run -it -v ${PWD}/../projects:/projects --user 1000 --entrypoint "/bin/bash" geth-devchain
 
 
 ### Truffle ###
@@ -25,7 +25,7 @@ build-truffle:
 	@cd truffle; docker build -t truffle-devchain -f truffleDockerfile .
 
 bash-truffle:
-	@docker run -it -v ${PWD}/../projects:/projects -p 8080:8080 --entrypoint "/bin/bash" truffle-devchain
+	@docker run -it -v ${PWD}/../projects:/projects -p 8080:8080 --user 1000 --entrypoint "/bin/bash" truffle-devchain
 
 clean-container:
 	@docker rm `docker ps --no-trunc -aq`
