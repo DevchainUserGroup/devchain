@@ -34,5 +34,6 @@ join-truffle:
 clean-container:
 	@docker rm `docker ps --no-trunc -aq`
 
-clean-untag-images:
-	@docker rmi `docker images | grep '^<none>' | awk '{print $$3}'`
+cleanup-docker:
+	@docker ps -f status=exited -q | xargs -r docker rm
+	@docker images -f dangling=true -q | xargs -r docker rmi
