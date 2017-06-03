@@ -5,7 +5,7 @@ build-geth:
 
 # runs the container with a default entrypoint: a service mananger
 run-geth:
-	@docker run -v share:/share geth-devchain
+	@docker run -v ${PWD}/../projects:/projects -p 10001:10001 geth-devchain
 
 stop-geth:
 	@docker stop `docker ps | grep " geth-devchain " | awk '{print $$1}'`
@@ -16,7 +16,7 @@ join-geth:
 
 # runs the container and start bash session (without starting the Ethereum client)
 bash-geth:
-	@docker run -it -v ${PWD}/../projects:/projects --user 1000 --entrypoint "/bin/bash" geth-devchain
+	@docker run -it -v ${PWD}/../projects:/projects -p 10001:10001 --user 1000 --entrypoint "/bin/bash" geth-devchain
 
 
 ### Truffle ###
@@ -35,4 +35,4 @@ clean-container:
 	@docker rm `docker ps --no-trunc -aq`
 
 clean-untag-images:
-	@docker rmi $(docker images | grep "^<none>" | awk "{print $$3}")
+	@docker rmi `docker images | grep '^<none>' | awk '{print $$3}'`

@@ -1,5 +1,5 @@
 #GethDockerfile
-FROM ethereum/client-go:v1.6.3
+FROM ethereum/client-go:v1.6.5
 LABEL name=geth
 
 # This is to allow runit stop gracefully
