@@ -31,6 +31,6 @@ echo "Starting Geth..."
 # we are using static-nodes.json (set up in gethInitNode.sh)
 #    --bootnodes $ENODE
 geth --etherbase 0 --datadir=$DATA_DIR --port=$NODE_PORT \
-     --rpc --rpcapi="admin,eth,miner,eth,web3,personal,txpool" --rpcaddr=$NODE_IP --rpcport=$NODE_PORT_RPC \
+     --rpc --rpcapi="admin,db,eth,miner,net,web3,personal,txpool" --rpcaddr=$NODE_IP --rpcport=$NODE_PORT_RPC \
      --ipcdisable --networkid=$NETWORK_ID_ --identity=$NODE_NAME --nodiscover --minerthreads=2 \
      --fast --mine
