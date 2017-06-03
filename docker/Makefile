@@ -1,3 +1,4 @@
+# Copyright 2017 - Dechain User Group
 ### Geth ###
 
 build-geth:

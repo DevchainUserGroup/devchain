@@ -1,3 +1,5 @@
+#Copyright 2017 - Dechain User Group
+
 #TODO Configure your node name
 export NODE_NAME=$HOSTNAME
 

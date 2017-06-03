@@ -1,4 +1,5 @@
 #!/bin/bash
+# Copyright 2017 - Dechain User Group
 source env.sh
 ETHERBASE=$DATA_DIR/etherbase.txt
 export

@@ -1,4 +1,5 @@
 #!/bin/bash
+# Copyright 2017 - Dechain User Group
 source env.sh
 export NODE_PORT=10000
 export NODE_IP='0.0.0.0'    # your local address you want to bind on

@@ -83,3 +83,10 @@ You don't need to install Vagrant, since all setups is based on Docker. All you 
 ## Intelligence API
 
 (http://factory.shinit.net:15000)[http://factory.shinit.net:15000]
+
+
+## License
+
+Copyright 2017 - Dechain User Group
+Apache License (./LICENSE.txt)[./LICENSE.txt]
+

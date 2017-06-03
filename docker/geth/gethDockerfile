@@ -1,3 +1,4 @@
+# Copyright 2017 - Dechain User Group
 #GethDockerfile
 FROM ethereum/client-go:v1.6.5
 LABEL name=geth
@@ -16,6 +17,8 @@ RUN passwd -d eth
 USER eth
 WORKDIR /home/eth
 RUN mkdir -p log/geth log/ethnetintel
+COPY banner.txt /home/eth/.banner-geth.txt
+RUN echo "cat ./.banner-geth.txt" > .bashrc
 COPY ./geth*json ./*.sh /home/eth/
 RUN bash ./init.sh
 

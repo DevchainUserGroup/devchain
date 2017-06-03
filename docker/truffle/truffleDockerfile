@@ -1,3 +1,4 @@
+# Copyright 2017 - Dechain User Group
 #Truffle Docker Image
 FROM node:8.0.0-alpine
 LABEL name=truffle
@@ -16,6 +17,9 @@ RUN npm install -g truffle
 ENV PATH="/home/node/npm-global/bin:${PATH}"
 
 WORKDIR /home/node
+COPY banner.txt /home/node/.banner-truffle.txt    
+RUN echo "cat ./.banner-truffle.txt" > .bashrc      
+
 RUN ln -s /projects /home/node/projects
 
 EXPOSE 8080

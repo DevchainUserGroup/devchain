@@ -1,4 +1,5 @@
 #!/bin/sh
+# Copyright 2017 - Dechain User Group
 exec 2>&1
 
 source /home/eth/env.sh

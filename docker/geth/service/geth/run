@@ -1,4 +1,6 @@
 #!/bin/sh
+# Copyright 2017 - Dechain User Group
+
 exec 2>&1
 cd /home/eth
 # chpst doesn't reload all variables (eg $HOME, $USER...) the user, we hve the following error:
