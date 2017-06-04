@@ -39,4 +39,4 @@ cd $ENVIRONMENT_DIR
 make build-geth
 
 echo "Creating Truffle image"
-#make build-truffle
+make build-truffle
