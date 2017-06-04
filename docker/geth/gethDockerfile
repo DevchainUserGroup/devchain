@@ -17,12 +17,12 @@ RUN passwd -d eth
 USER eth
 WORKDIR /home/eth
 RUN mkdir -p log/geth log/ethnetintel
+COPY banner.txt /home/eth/.banner-geth.txt
+RUN echo "cat ./.banner-geth.txt" > .bashrc
 COPY ./geth*json ./*.sh /home/eth/
 RUN bash ./init.sh
 
 USER root
-COPY banner.txt /root/.banner-geth.txt
-RUN echo "cat ~/.banner-geth.txt" >> ~/.bashrc
 RUN chown -R eth:users /home/eth
 RUN chmod +x /home/eth/*sh
 # Add services runit scripts

@@ -13,7 +13,7 @@ stop-geth:
 
 # joins the running container
 join-geth:
-	@docker exec -it `docker ps | grep " geth-devchain " | awk '{print $$1}'` /bin/bash
+	@docker exec -it --user 1000 `docker ps | grep " geth-devchain " | awk '{print $$1}'` /bin/bash
 
 # runs the container and start bash session (without starting the Ethereum client)
 bash-geth:
