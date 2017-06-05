@@ -14,9 +14,15 @@ Vagrant will automatically setup a virtual machine for you.
 
 1. Install [Vagrant](https://www.vagrantup.com/downloads)
 1. Install [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
+1. And for Windows user install [Cmder](http://cmder.net/) > Downloads full
+
+1. In your terminal (or cmder) go on the Devchain dedicated folder. Checkout this repository (it's possible your MacBook ask you to install Xcode, just do it)
+		
+		git clone https://github.com/DevchainUserGroup/environment.git
+
 1. Run the Vagrant image:
 
-		cd vagrant
+		cd environment/vagrant
 		vagrant up
 
 1. Connect to the VM
