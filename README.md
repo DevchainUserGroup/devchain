@@ -49,8 +49,14 @@ You don't need to install Vagrant, since all setups is based on Docker. All you 
 
 1. Remove the VM Vagrant image:
 
-		cd ./environment/vagrant
-		vagrant destroy
+    1. Connect to the VirtualBox Manager
+
+    1. Select the devchain-vm VM
+
+    1. Go to menu "Machine > Close > Power Off"
+
+    1. Go to menu "Machine > Remove > Delete all files"
+
 
 1. Incorporates changes from the DevchainUserGroup repository
 
