@@ -5,7 +5,7 @@ This package provides docker image and scripts to run private Ethereum blockchai
 
 ## Setup
 
-All the docker entry commands are inside the [Makefile](https://github.com/DevchainUserGroup/environment/blob/reorganization/Makefile). Please make familiar with the content of this file.
+All the docker entry commands are inside the [Makefile](https://github.com/DevchainUserGroup/environment/docker/Makefile). Please make familiar with the content of this file.
 
 ### Windows / OSX
 
@@ -20,9 +20,13 @@ Vagrant will automatically setup a virtual machine for you.
 		
 		git clone https://github.com/DevchainUserGroup/environment.git
 
+1. Configure your geth node name, edit [./environment/docker/geth/env.sh](./docker/geth/env.sh)
+
+1. Check you have 10 Go spaces on your drive.
+
 1. Run the Vagrant image:
 
-		cd environment/vagrant
+		cd ./environment/vagrant
 		vagrant up
 
 1. Connect to the VM
@@ -31,7 +35,7 @@ Vagrant will automatically setup a virtual machine for you.
 
 
 
-### Linux / Linux VM
+### Linux
 
 Once you have your environment follow
 You don't need to install Vagrant, since all setups is based on Docker. All you need to do is to install `docker` and `make`.
@@ -41,9 +45,25 @@ You don't need to install Vagrant, since all setups is based on Docker. All you 
 2. Build Images:
 		make build-geth
 
+## Update VM Vagrant image
 
+1. Remove the VM Vagrant image:
 
-### Useful docker commands
+		cd ./environment/vagrant
+		vagrant destroy
+
+1. Incorporates changes from the DevchainUserGroup repository
+
+		git pull https://github.com/DevchainUserGroup/environment.git
+
+1. Check you have 10 Go spaces on your drive.
+
+1. Run the Vagrant image:
+
+		cd ./environment/vagrant
+		vagrant up
+
+## Useful docker commands
 
 + List docker image
 
