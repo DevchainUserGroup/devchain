@@ -18,7 +18,6 @@ ENV PATH="/home/node/npm-global/bin:${PATH}"
 
 WORKDIR /home/node
 COPY ./.inputrc ./.bashrc /home/node/
-
 RUN ln -s /projects /home/node/projects
 
 EXPOSE 8080

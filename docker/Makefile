@@ -32,6 +32,9 @@ bash-truffle:
 join-truffle:
 	@docker exec -it `docker ps | grep " truffle-devchain " | awk '{print $$1}'` /bin/bash
 
+
+### cleanup ###
+
 clean-container:
 	@docker rm `docker ps --no-trunc -aq`
 

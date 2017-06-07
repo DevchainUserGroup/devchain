@@ -1,6 +1,7 @@
 #!/bin/bash
 # Copyright 2017 - Dechain User Group
 
+cd /home/eth
 source /home/eth/env.sh
 
 export NODE_ENV="private"
