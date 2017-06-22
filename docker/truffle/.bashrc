@@ -8,6 +8,7 @@
 export PS1="\[\033[0;35m\]\u@\\h\[\033[0m\]:\w> "
 export HISTFILESIZE=3000 # the bash history should save 3000 commands
 export HISTCONTROL=ignoredups #don't put duplicate lines in the history.
+export TERM=xterm
 
 
 
