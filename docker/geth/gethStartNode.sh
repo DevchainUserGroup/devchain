@@ -33,5 +33,7 @@ echo "Starting Geth..."
 #    --bootnodes $ENODE
 geth --etherbase 0 --datadir=$DATA_DIR --port=$NODE_PORT \
      --rpc --rpcapi="admin,db,eth,miner,net,web3,personal,txpool" --rpcaddr=$NODE_IP --rpcport=$NODE_PORT_RPC \
-     --ipcdisable --networkid=$NETWORK_ID_ --identity=$NODE_NAME --nodiscover --minerthreads=2 \
+     --networkid=$NETWORK_ID_ --identity=$NODE_NAME --nodiscover --minerthreads=2 \
+     --ipcpath /home/eth/geth.ipc  \
+     --unlock 0 \
      --fast --mine
