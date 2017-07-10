@@ -1,5 +1,5 @@
 # Copyright 2017 - Dechain User Group
-#GethDockerfile
+
 FROM ethereum/client-go:v1.6.5
 LABEL name=geth
 

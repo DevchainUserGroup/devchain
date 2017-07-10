@@ -2,7 +2,7 @@
 ### Geth ###
 
 build-geth:
-	@cd geth; docker build -t geth-devchain -f gethDockerfile .
+	@cd geth; docker build -t geth-devchain -f Dockerfile .
 
 # runs the container with a default entrypoint: a service mananger
 run-geth:
