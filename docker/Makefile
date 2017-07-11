@@ -27,7 +27,7 @@ build-truffle:
 
 # runs the container and start bash session
 testrpc-truffle:
-	@docker run -it -v ${PWD}/../projects:/projects -p 8545:8545 --user 1000 --entrypoint "/home/node/npm-global/bin/testrpc" truffle-devchain
+	@docker run -it -v ${PWD}/../projects:/projects -p 8545:8545 --user 1000 --entrypoint "/home/node/npm-global/bin/testrpc" truffle-devchain -m 'bonus salon bracket farm foot face stomach'
 
 # runs the container and start bash session
 bash-truffle:
@@ -35,6 +35,9 @@ bash-truffle:
 
 join-truffle:
 	@docker exec -it `docker ps | grep " truffle-devchain " | awk '{print $$1}'` /bin/bash
+
+stop-truffle:
+	@docker stop `docker ps | grep " truffle-devchain " | awk '{print $$1}'`
 
 
 ### cleanup ###

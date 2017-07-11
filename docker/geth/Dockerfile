@@ -9,10 +9,11 @@ STOPSIGNAL HUP
 ENTRYPOINT [ "/sbin/runsvdir", "/etc/service" ]
 RUN ln -s /usr/local/bin/geth /usr/bin/
 # configure container
-RUN apk add --update bash zsh vim emacs-nox shadow runit less \
+RUN apk add --update bash zsh vim emacs-nox shadow runit less sudo \
 	nodejs git openssl  # for intelligence api
-RUN useradd -m eth
-RUN passwd -d eth
+RUN adduser -D eth  && echo "eth:eth" | chpasswd && adduser eth wheel \
+	 && echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
 COPY ./.inputrc ./.bashrc /root/
 
 USER eth

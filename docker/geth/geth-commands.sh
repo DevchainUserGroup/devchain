@@ -22,9 +22,5 @@ geth --testnet --cache 512 --datadir network-testnet console
 geth --dev --datadir ./network-dev console
 
 
-
-### remix + geth console
-
+## unlock account to provide access to the wallet
 personal.unlockAccount(eth.coinbase)
-# then copy the code from the remix browser:
-https://remix.ethereum.org/

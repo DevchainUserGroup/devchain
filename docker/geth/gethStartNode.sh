@@ -57,6 +57,7 @@ echo "Starting Geth..."
 geth --etherbase 0 --datadir=$DATA_DIR --port=$NODE_PORT \
      --rpc --rpcapi="admin,db,eth,miner,net,web3,personal,txpool" --rpcaddr=$NODE_IP --rpcport=$NODE_PORT_RPC \
      --networkid=$NETWORK_ID_ --identity=$NODE_NAME --nodiscover --minerthreads=2 \
+     --rpccorsdomain remix.ethereum.org,localhost \
      --ipcpath $DATA_DIR/geth.ipc  \
      --unlock 0 --password $ETHERBASE_PWD \
      --fast --mine

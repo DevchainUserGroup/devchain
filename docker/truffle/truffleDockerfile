@@ -1,11 +1,14 @@
 # Copyright 2017 - Dechain User Group
-#Truffle Docker Image
-FROM node:8.0.0-alpine
-LABEL name=truffle
+# Ethereum Smart-Contracts Interactive Development Environment docker image
 
-RUN apk add --update bash zsh vim emacs-nox less \
-        nodejs git openssl \
-        g++ make
+FROM ethereum/solc:0.4.13
+LABEL name=eth-ide
+
+RUN apk add --update bash zsh vim emacs-nox less tree sudo \
+        nodejs-npm git openssl \
+        make
+RUN adduser -D node  && echo "node:node" | chpasswd && adduser node wheel \
+	 && echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 USER node
 RUN mkdir /home/node/npm-global
