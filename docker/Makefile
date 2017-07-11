@@ -6,7 +6,7 @@ build-geth:
 
 # runs the container with a default entrypoint: a service mananger
 run-geth:
-	@docker run -v ${PWD}/../projects:/projects -p 10001:10001 geth-devchain
+	@docker run -v ${PWD}/../projects:/projects -p 10001:10001 -it geth-devchain
 
 stop-geth:
 	@docker stop `docker ps | grep " geth-devchain " | awk '{print $$1}'`

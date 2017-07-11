@@ -20,3 +20,11 @@ geth --testnet --cache 512 --datadir network-testnet console
 
 ### quick dev start
 geth --dev --datadir ./network-dev console
+
+
+
+### remix + geth console
+
+personal.unlockAccount(eth.coinbase)
+# then copy the code from the remix browser:
+https://remix.ethereum.org/
