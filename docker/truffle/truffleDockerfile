@@ -5,14 +5,14 @@ LABEL name=truffle
 
 RUN apk add --update bash zsh vim emacs-nox less \
         nodejs git openssl \
-        python python-dev g++ make
+        g++ make
 
 USER node
 RUN mkdir /home/node/npm-global
 RUN npm config set prefix /home/node/npm-global
 
-RUN npm install -g ethereumjs-testrpc
-RUN npm install -g truffle
+RUN npm install -g ethereumjs-testrpc@4.0.0
+RUN npm install -g truffle@3.4.3
 
 ENV PATH="/home/node/npm-global/bin:${PATH}"
 
@@ -20,5 +20,5 @@ WORKDIR /home/node
 COPY ./.inputrc ./.bashrc /home/node/
 RUN ln -s /projects /home/node/projects
 
-EXPOSE 8080
-ENTRYPOINT []
+EXPOSE 8545
+ENTRYPOINT ["/bin/bash"]
