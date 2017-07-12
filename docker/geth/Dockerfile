@@ -5,14 +5,14 @@ LABEL name=geth
 
 # This is to allow runit stop gracefully
 STOPSIGNAL HUP
+ENTRYPOINT runsvdir /etc/service & tail -F /home/eth/log/geth/current
 
-ENTRYPOINT [ "/sbin/runsvdir", "/etc/service" ]
 RUN ln -s /usr/local/bin/geth /usr/bin/
 # configure container
 RUN apk add --update bash zsh vim emacs-nox shadow runit less sudo \
 	nodejs git openssl  # for intelligence api
-RUN adduser -D eth  && echo "eth:eth" | chpasswd && adduser eth wheel \
-	 && echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+RUN adduser -D eth  && passwd -d eth && adduser eth wheel \
+	&& echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 COPY ./.inputrc ./.bashrc /root/
 
