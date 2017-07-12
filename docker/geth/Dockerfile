@@ -1,6 +1,6 @@
 # Copyright 2017 - Dechain User Group
 
-FROM ethereum/client-go:v1.6.5
+FROM ethereum/client-go:v1.6.7
 LABEL name=geth
 
 # This is to allow runit stop gracefully
@@ -8,8 +8,7 @@ STOPSIGNAL HUP
 ENTRYPOINT runsvdir /etc/service & tail -F /home/eth/log/geth/current
 
 RUN ln -s /usr/local/bin/geth /usr/bin/
-# configure container
-RUN apk add --update bash zsh vim emacs-nox shadow runit less sudo \
+RUN apk add --update bash zsh vim shadow runit less sudo \
 	nodejs git openssl  # for intelligence api
 RUN adduser -D eth  && passwd -d eth && adduser eth wheel \
 	&& echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers

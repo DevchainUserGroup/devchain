@@ -24,3 +24,7 @@ geth --dev --datadir ./network-dev console
 
 ## unlock account to provide access to the wallet
 personal.unlockAccount(eth.coinbase)
+
+
+## set default account to make operations:
+eth.defaultAccount = eth.coinbase
