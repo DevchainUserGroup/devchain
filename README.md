@@ -1,5 +1,5 @@
 
-# Devchain User Group Environmen Repository
+# Devchain User Group Environment Repository
 
 This package provides docker image and scripts to run private Ethereum blockchain.
 
