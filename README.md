@@ -17,7 +17,7 @@ Vagrant will automatically setup a virtual machine for you.
 1. And for Windows user install [Cmder](http://cmder.net/) > Downloads full
 
 1. In your terminal (or cmder) go on the Devchain dedicated folder. Checkout this repository (it's possible your MacBook ask you to install Xcode, just do it)
-		
+
 		git clone https://github.com/DevchainUserGroup/environment.git
 
 1. Configure your geth node name, edit [./environment/docker/geth/env.sh](./docker/geth/env.sh)
@@ -38,12 +38,13 @@ Vagrant will automatically setup a virtual machine for you.
 ### Linux
 
 Once you have your environment follow
-You don't need to install Vagrant, since all setups is based on Docker. All you need to do is to install `docker` and `make`.
+You don't need to install Vagrant, since all setups is based on Docker.
 
-1. Create a NODENAME file - [./docker/geth/NODENAME](./docker/geth/NODENAME)
+1. Install dependencies: `docker`, `make` `docker-compose`
+2. Create a NODENAME file - [./docker/geth/NODENAME](./docker/geth/NODENAME)
 
-2. Build Images:
-		make build-geth
+3. Build Images:
+		make geth-build eth-polygon-build
 
 ## Update VM Vagrant image
 
@@ -121,4 +122,3 @@ You don't need to install Vagrant, since all setups is based on Docker. All you 
 
 Copyright 2017 - Dechain User Group
 Apache License (./LICENSE.txt)[./LICENSE.txt]
-

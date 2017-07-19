@@ -4,18 +4,15 @@ source env.sh
 export NODE_PORT=10000               # Network listening port (default: 30303)
 export NODE_IP='0.0.0.0'             # your local address you want to bind on
 export NODE_PORT_RPC=$GETH_RPC_PORT  # your local port for RPC, default=8545
-export NETWORK_IDS=(2017042099)
-export NETWORK_ID_=${NETWORK_IDS[0]}
 
 
 ## check and setup the primary account
 
 ETHERBASE_PWD=$DATA_DIR/etherbase_pwd.txt
-mkdir -p /projects/ethereum
-
-if [ ! -d $DATA_DIR ]; then
+mkdir -p /projects/eth-data
+if [ ! -d $DATA_DIR/geth ]; then
 	echo "Initialisation network $DATA_DIR data dir"
-	ln -s /projects/ethereum $DATA_DIR
+	ln -s /projects/eth-data $DATA_DIR
 	geth --datadir $DATA_DIR init ./gethGenesisBlock.json
 	cat <<EOF >$DATA_DIR/static-nodes.json
 [
@@ -30,34 +27,17 @@ else
 fi
 
 
-if [ -z $network_id ]
-then
-    echo "Use default network_id"
-elif ! [[ ${network_id}  =~ ^[0-9]+$ ]]
-then
-    echo "Wrong parameter format for network_id: \"${network_id}\""
-    echo "Integer expression expected"
-    exit 1
-elif [ ${network_id} -eq 1 ] || [ ${network_id} -eq 2 ]
-then
-    NETWORK_ID_=${NETWORK_IDS[${network_id}-1]}
-else
-    echo "Wrong parameter network_id: \"${network_id}\""
-    echo "Available network_id:"
-    echo "1 > ${NETWORK_IDS[0]}"
-    echo "2 > ${NETWORK_IDS[1]}"
-    exit 1
-fi
-
-echo "Network_id: ${NETWORK_ID_}"
 
 echo "Starting Geth..."
 # we are using static-nodes.json (set up in gethInitNode.sh)
 #    --bootnodes $ENODE
 geth --etherbase 0 --datadir=$DATA_DIR --port=$NODE_PORT \
      --rpc --rpcapi="admin,db,eth,miner,net,web3,personal,txpool" --rpcaddr=$NODE_IP --rpcport=$NODE_PORT_RPC \
-     --networkid=$NETWORK_ID_ --identity=$NODE_NAME --nodiscover --minerthreads=2 \
+     --identity=$NODENAME \
+     --networkid=2017042099
+     --nodiscover \
      --rpccorsdomain remix.ethereum.org,localhost \
      --ipcpath $DATA_DIR/geth.ipc  \
      --unlock 0 --password $ETHERBASE_PWD \
-     --fast --mine
+     --fast
+     --minerthreads=2 --mine  # --verbosity 5

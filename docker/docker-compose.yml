@@ -1,0 +1,20 @@
+version: '3'
+services:
+  geth-devchain:
+    container_name: geth-devchain
+    build: ./geth
+    volumes:
+      - ../eth-data:/eth-data
+    ports:
+      - "10001:10001"
+
+  eth-polygon:
+    container_name: eth-polygon
+    build: ./eth-polygon
+    volumes:
+      - ../projects:/projects
+    ports:
+      - "8545:8545"
+    links:
+      - geth-devchain
+    user: node

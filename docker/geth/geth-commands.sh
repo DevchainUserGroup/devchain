@@ -13,6 +13,7 @@ geth attach 'http://127.0.0.1:10001'
 personal.listAccounts
 personal.listWallets
 
+web3.fromWei(eth.getBalance(eth.coinbase));
 
 ### using testnet
 geth --testnet --cache 512 --datadir network-testnet console

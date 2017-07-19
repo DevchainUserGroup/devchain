@@ -5,7 +5,8 @@ set vx
 sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 sudo apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
 sudo apt-get update
-sudo apt-get install -y docker-engine make --allow-unauthenticated
+sudo apt-get install -y docker-engine make pip --allow-unauthenticated
+sudo pip install docker-compose
 
 # 534Mb extra option - recommended
 # sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
@@ -31,12 +32,13 @@ else
   exit -1
 fi
 
-ln -s share/environment/projects projects
-ln -s share/environment/docker docker
+ln -s share/environment/projects .
+ln -s share/environment/docker .
+ln -s share/environment/eth-data .
 
 echo "Creating Geth image"
 cd $ENVIRONMENT_DIR
-make build-geth
+make geth-build
 
-echo "Creating Truffle image"
-make build-truffle
+echo "Creating eth-polygon image"
+make eth-polygon-build
