@@ -3,6 +3,10 @@
 
 This package provides docker image and scripts to run private Ethereum blockchain.
 
+## Slack
+
+Pleas join our slack group: [geneva-devchain](https://geneva-devchain.slack.com).
+
 ## Setup
 
 All the docker entry commands are inside the [Makefile](https://github.com/DevchainUserGroup/environment/docker/Makefile). Please make familiar with the content of this file.
