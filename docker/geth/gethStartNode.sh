@@ -39,5 +39,5 @@ geth --etherbase 0 --datadir=$DATA_DIR --port=$NODE_PORT \
      --rpccorsdomain '*' \
      --ipcpath $DATA_DIR/geth.ipc  \
      --unlock 0 --password $ETHERBASE_PWD \
-     --fast
+     --fast \
      --minerthreads=2 --mine  # --verbosity 5
