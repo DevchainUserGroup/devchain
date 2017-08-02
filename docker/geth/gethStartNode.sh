@@ -36,7 +36,7 @@ geth --etherbase 0 --datadir=$DATA_DIR --port=$NODE_PORT \
      --identity=$NODENAME \
      --networkid=2017042099
      --nodiscover \
-     --rpccorsdomain remix.ethereum.org,localhost \
+     --rpccorsdomain '*' \
      --ipcpath $DATA_DIR/geth.ipc  \
      --unlock 0 --password $ETHERBASE_PWD \
      --fast
