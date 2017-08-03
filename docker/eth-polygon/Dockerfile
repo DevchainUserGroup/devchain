@@ -12,7 +12,7 @@ RUN adduser -D node  && echo "node:node" | chpasswd && adduser node wheel \
 
 USER node
 RUN mkdir /home/node/npm-global \
-    $$ yarn config set prefix /home/node/npm-global \
+    && yarn config set prefix /home/node/npm-global \
     && ln -s /projects /home/node/projects
 #    && npm config set prefix /home/node/npm-global \
 ENV PATH="/home/node/npm-global/bin:${PATH}"
