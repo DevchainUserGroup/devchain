@@ -6,22 +6,30 @@ LABEL name=eth-polygon
 
 RUN apk add --update bash zsh vim emacs-nox less tree sudo tmux curl tig \
         nodejs yarn git openssl \
-        make
-RUN adduser -D node  && echo "node:node" | chpasswd && adduser node wheel \
+        make perl libc-dev gcc jansson-dev
+RUN adduser -D node && echo "node:node" | chpasswd && adduser node wheel \
 	 && echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 USER node
-RUN mkdir /home/node/npm-global \
+RUN mkdir /home/node/npm-global /home/node/tools \
     && yarn config set prefix /home/node/npm-global \
     && ln -s /projects /home/node/projects
-#    && npm config set prefix /home/node/npm-global \
+# not using npm:    && npm config set prefix /home/node/npm-global \
+
 ENV PATH="/home/node/npm-global/bin:${PATH}"
 WORKDIR /home/node
+COPY ./.inputrc ./.bashrc /home/node/
+
+RUN echo "installing jshon" \
+	&& cd ~/tools \
+	&& git clone https://github.com/mbrock/jshon.git && cd jshon \
+	&& make && sudo make install \
+	&& echo "installing dapphub/seth" \
+	&& cd ~/tools \
+	&& git clone https://github.com/dapphub/seth.git \
+	&& cd seth && git checkout 0ad3330
 
 RUN yarn global add ethereumjs-testrpc@4.0.1 truffle@3.4.6
-
-
-COPY ./.inputrc ./.bashrc /home/node/
 
 EXPOSE 8545
 ENTRYPOINT ["/bin/bash"]
