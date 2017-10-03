@@ -1,6 +1,0 @@
-#!/bin/sh
-# Copyright 2017 - Dechain User Group
-exec 2>&1
-
-exec su -c "/home/eth/gethStartIntel.sh"
-

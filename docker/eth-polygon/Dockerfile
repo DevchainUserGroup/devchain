@@ -1,10 +1,10 @@
 # Copyright 2017 - Dechain User Group
 # Ethereum Smart-Contracts polygon
 
-FROM ethereum/solc:0.4.14
+FROM ethereum/solc:0.4.17
 LABEL name=eth-polygon
 
-RUN apk add --update bash zsh vim emacs-nox less tree sudo tmux curl tig \
+RUN apk add --update bash vim emacs-nox less tree sudo tmux curl tig \
         nodejs yarn git openssl \
         make perl libc-dev gcc jansson-dev
 RUN adduser -D node && echo "node:node" | chpasswd && adduser node wheel \
