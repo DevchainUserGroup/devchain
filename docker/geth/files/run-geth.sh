@@ -34,7 +34,7 @@ if [ ! -d $DATA_DIR/geth/chaindata ]; then
 	## This doesn't work with --dev
 	if [ -z "$DEV" ]; then
 		sed -i "s/: 1337/: $NETWORKID/" /root/gethGenesisBlock.json
-		geth --datadir $DATA_DIR init /root/gethGenesisBlock.json
+		geth --datadir $DATA_DIR --light init /root/gethGenesisBlock.json
 	fi
 	if [ -z "$(ls -A $DATA_DIR/keystore)" ]; then
 		echo "Creating coinbase account"
@@ -58,6 +58,7 @@ geth --datadir=$DATA_DIR --port=$NODE_PORT \
      --nodiscover --maxpeers 0 \
      --etherbase 0 \
      --unlock 0 --password $COINBASE_PWD \
+     --lightkdf --light \
      --mine $MINERTHREADS_OPT $DEV
 
 # --dev \
