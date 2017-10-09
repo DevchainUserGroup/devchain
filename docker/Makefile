@@ -1,7 +1,7 @@
 # Copyright 2017 - Dechain User Group
 
 geth-build:
-	@mkdir -p ../projects
+	@mkdir -p ../projects ../eth-data
 	@docker-compose build geth-devchain
 
 # runs the container with a default entrypoint: a service mananger
@@ -46,8 +46,7 @@ eth-polygon-stop:
 ### cleanup ###
 
 clean-container:
-	@docker rm `docker ps --no-trunc -aq`
-#	@docker ps -f status=exited -q | xargs -r docker rm
+	@docker ps -f status=exited -q --no-trunc | xargs -r docker rm
 
 cleanup-images:
 	@docker images -f dangling=true -q | xargs -r docker rmi

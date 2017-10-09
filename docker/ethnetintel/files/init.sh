@@ -1,8 +1,6 @@
-#!/bin/bash
 # Copyright 2017 - Dechain User Group
-source env.sh
-ln -s /eth-data $DATA_DIR
 
+cd /root
 echo "Setting up eth net intelligence api"
 wget http://github.com/cubedro/eth-net-intelligence-api/archive/master.zip
 unzip master.zip

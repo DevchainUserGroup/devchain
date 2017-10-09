@@ -1,32 +1,13 @@
 # Copyright 2017 - Dechain User Group
 
-FROM ethereum/client-go:v1.6.7
-LABEL name=geth
+FROM ethereum/client-go:v1.7.0
+LABEL name=devchain
 
-# This is to allow runit stop gracefully
-STOPSIGNAL HUP
-ENTRYPOINT runsvdir /etc/service & tail -F /home/eth/log/geth/current
+ENTRYPOINT /root/run-geth.sh
+WORKDIR /root
 
-RUN ln -s /usr/local/bin/geth /usr/bin/
-RUN apk add --update bash zsh vim shadow runit less sudo \
-	nodejs git openssl  # for intelligence api
-RUN adduser -D eth  && passwd -d eth && adduser eth wheel \
-	&& echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+RUN apk add --update bash vim less
+# we expose the RPC and WebSocket port. We don't expose the node port because we don't need to sync with other nodes.
+EXPOSE 8545 8546 30303
 
-COPY ./.inputrc ./.bashrc /root/
-
-USER eth
-WORKDIR /home/eth
-# NOTE: you have to create NODENAME file
-COPY ./NODENAME /home/eth/
-COPY ./geth*json ./*.sh ./.inputrc ./.bashrc /home/eth/
-
-RUN mkdir -p log/geth log/ethnetintel
-RUN bash ./init.sh
-
-USER root
-RUN chown -R eth:users /home/eth
-# Add services runit scripts
-COPY service /etc/service
-
-EXPOSE 10000 10001 10002
+COPY ./files/* /root/

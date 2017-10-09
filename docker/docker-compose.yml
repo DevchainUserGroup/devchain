@@ -3,10 +3,24 @@ services:
   geth-devchain:
     container_name: geth-devchain
     build: ./geth
+    environment:
+      - NETWORKID=2017042099
+      - MINERTHREADS=1
     volumes:
       - ../eth-data:/eth-data
     ports:
-      - "10001:10001"
+      - "10001:8545"  # rpc
+      - "10002:8546"  # websockets
+      - "10003:30303"
+
+  # docker run -it --net=host --entrypoint bash docker_ethnetintel-devchain
+  ethnetintel-devchain:
+    container_name: ethnetintel-devchain
+    build: ./ethnetintel
+    volumes:
+      - ../projects:/projects
+    links:
+      - geth-devchain
 
   eth-polygon:
     container_name: eth-polygon

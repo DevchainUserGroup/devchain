@@ -38,30 +38,14 @@ Vagrant will automatically setup a virtual machine for you.
 		vagrant ssh
 
 
-
-### Linux
-
-Once you have your environment follow
-You don't need to install Vagrant, since all setups is based on Docker.
-
-1. Install dependencies: `docker`, `make` `docker-compose`
-2. Create a NODENAME file - [./docker/geth/NODENAME](./docker/geth/NODENAME)
-
-3. Build Images:
-		make geth-build eth-polygon-build
-
-## Update VM Vagrant image
+#### Update VM Vagrant image
 
 1. Remove the VM Vagrant image:
 
     1. Connect to the VirtualBox Manager
-
     1. Select the devchain-vm VM
-
     1. Go to menu "Machine > Close > Power Off"
-
     1. Go to menu "Machine > Remove > Delete all files"
-
 
 1. Incorporates changes from the DevchainUserGroup repository
 
@@ -73,6 +57,34 @@ You don't need to install Vagrant, since all setups is based on Docker.
 
 		cd ./environment/vagrant
 		vagrant up
+
+
+
+### Linux
+
+Once you have your environment follow
+You don't need to install Vagrant, since all setups is based on Docker.
+
+1. Install dependencies: `docker`, `make` `docker-compose`
+1. Add yourself to docker group:
+
+		groupadd docker && sudo gpasswd -a ${USER} docker && sudo systemctl restart docker
+
+1. Create a NODENAME file - [./docker/ethnetintel/files/NODENAME](./docker/ethnetintel/files/NODENAME) with your username:
+
+		cd <your-project>/ethnetintel/files
+		echo "my-name" > NODENAME
+
+1. Build Images:
+
+		make geth-build eth-polygon-build
+
+1. Run the node:
+
+		make geth-run
+
+
+
 
 ## Useful docker commands
 
