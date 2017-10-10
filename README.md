@@ -21,21 +21,22 @@ All the docker entry commands are inside the [Makefile](https://github.com/Devch
 
 1. Create a NODENAME file - [./docker/ethnetintel/files/NODENAME](./docker/ethnetintel/files/NODENAME) with your username:
 
-		cd docker/ethnetintel/files
-		echo "my-name" > NODENAME
+		echo "my-name" > ~/docker/ethnetintel/files/NODENAME
 
 1. Build Images:
 
 		cd docker
 		make geth-build eth-polygon-build
 
-1. Run the node:
+1. Run a Devchain's node.
+   This can be achieve either ways:
+   + Geth stand alone
 
 		make geth-run
 
-1. Run the eth-net-intelligence-api with docker. Attention: this will start separate `docker_geth-devchain` container in a background - so you shouldn't run normal geth.
+   + Run Geth with eth-net-intelligence-api.
 
-	docker-compose up --build ethnetintel-devchain
+		docker-compose up --build ethnetintel-devchain
 
 
 ## Useful docker commands
