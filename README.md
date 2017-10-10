@@ -7,13 +7,13 @@ This package provides docker image and scripts to run private Ethereum blockchai
 
 Please join our slack group: [geneva-devchain](https://geneva-devchain.slack.com).
 
-### Preinstall Windows / OSX
+### Pre-install Windows / OSX
 
-Please report to the [Windows / MacOS Installation](WindowsMacOS_install.md)
+Please follow the [Windows / MacOS pre installation](WindowsMacOS_install.md)
 
-### Preinstall Linux
+### Pre-install Linux
 
-Please report to the [Linux](Linux_install.md)
+Please follow the [Linux pre installation](Linux_install.md)
 
 ### Setup
 
