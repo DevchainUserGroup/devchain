@@ -1,3 +1,4 @@
 **/.vagrant
 **/*.log
-eth-data/
+/eth-data
+/eth-data-dev

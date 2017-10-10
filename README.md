@@ -5,7 +5,7 @@ This package provides docker image and scripts to run private Ethereum blockchai
 
 ## Slack
 
-Pleas join our slack group: [geneva-devchain](https://geneva-devchain.slack.com).
+Please join our slack group: [geneva-devchain](https://geneva-devchain.slack.com).
 
 ## Setup
 
@@ -72,18 +72,21 @@ You don't need to install Vagrant, since all setups is based on Docker.
 
 1. Create a NODENAME file - [./docker/ethnetintel/files/NODENAME](./docker/ethnetintel/files/NODENAME) with your username:
 
-		cd <your-project>/ethnetintel/files
+		cd docker/ethnetintel/files
 		echo "my-name" > NODENAME
 
 1. Build Images:
 
+		cd docker
 		make geth-build eth-polygon-build
 
 1. Run the node:
 
 		make geth-run
 
+1. Run the eth-net-intelligence-api with docker. Attention: this will start separate `docker_geth-devchain` container in a background - so you shouldn't run normal geth.
 
+	docker-compose up --build ethnetintel-devchain
 
 
 ## Useful docker commands
@@ -96,18 +99,7 @@ You don't need to install Vagrant, since all setups is based on Docker.
 
 	sudo docker container list
 
-+ Start Geth docker (with default network id)
 
-		sudo docker run geth-container
-
-+ Start Geth docker with specific network id
-
-		sudo docker run -e "network_id=2" geth-container
-
-	Available network ids:
-
-		1: 2017040499 (default)
-		2: 2017042099
 
 ## Usefull geth command
 

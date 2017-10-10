@@ -15,6 +15,9 @@ if [ -n "$MINERTHREADS" ]; then
 	MINERTHREADS_OPT="--minerthreads $MINERTHREADS"
 	echo "MINERTHREADS: $MINERTHREADS"
 fi
+echo "NETWORKID=$NETWORKID"
+echo "MINERTHREADS=$MINERTHREADS"
+
 if [ ! -d $DATA_DIR ]; then
 	echo "WARNING: eth data volume not provided. Creating local DATADIR"
 	mkdir -p $DATA_DIR
@@ -34,7 +37,7 @@ if [ ! -d $DATA_DIR/geth/chaindata ]; then
 	## This doesn't work with --dev
 	if [ -z "$DEV" ]; then
 		sed -i "s/: 1337/: $NETWORKID/" /root/gethGenesisBlock.json
-		geth --datadir $DATA_DIR --light init /root/gethGenesisBlock.json
+		geth --datadir $DATA_DIR init /root/gethGenesisBlock.json
 	fi
 	if [ -z "$(ls -A $DATA_DIR/keystore)" ]; then
 		echo "Creating coinbase account"
@@ -50,15 +53,13 @@ echo "Starting Geth $DEV..."
 #    --bootnodes $ENODE
 
 geth --datadir=$DATA_DIR --port=$NODE_PORT \
-     --rpc --rpcapi="eth,miner,net,web3,personal,txpool" --rpcaddr=$NODE_IP  \
-     --rpccorsdomain "*"\
+     --rpc --rpcaddr=$NODE_IP --rpcapi="eth,miner,net,web3,personal,txpool" --rpccorsdomain "*"\
      --ws --wsaddr $NODE_IP --wsapi "eth,miner,net,web3,personal,txpool" --wsorigins "*" \
      --networkid $NETWORKID \
      --identity "$NODENAME" \
      --nodiscover --maxpeers 0 \
-     --etherbase 0 \
      --unlock 0 --password $COINBASE_PWD \
-     --lightkdf --light \
+     --fast --cache=512 \
      --mine $MINERTHREADS_OPT $DEV
 
 # --dev \

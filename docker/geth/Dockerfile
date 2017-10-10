@@ -1,6 +1,6 @@
 # Copyright 2017 - Dechain User Group
 
-FROM ethereum/client-go:v1.7.0
+FROM ethereum/client-go:v1.7.1
 LABEL name=devchain
 
 ENTRYPOINT /root/run-geth.sh
