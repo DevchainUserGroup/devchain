@@ -11,6 +11,8 @@ Please join our slack group: [geneva-devchain](https://geneva-devchain.slack.com
 
 All the docker entry commands are inside the [Makefile](https://github.com/DevchainUserGroup/environment/docker/Makefile). Please make familiar with the content of this file.
 
+If you are Linux user then please skip the Vagrant installation part. Go directly to Docker.
+
 ### Windows / OSX
 
 For non Linux systems we use Vagrant to provide  full environment to operate Docker containers.
@@ -69,6 +71,8 @@ You don't need to install Vagrant, since all setups is based on Docker.
 1. Add yourself to docker group:
 
 		groupadd docker && sudo gpasswd -a ${USER} docker && sudo systemctl restart docker
+
+	To make an effect of the above you probably need to **re-login**.
 
 1. Create a NODENAME file - [./docker/ethnetintel/files/NODENAME](./docker/ethnetintel/files/NODENAME) with your username:
 
