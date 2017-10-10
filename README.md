@@ -9,11 +9,11 @@ Please join our slack group: [geneva-devchain](https://geneva-devchain.slack.com
 
 ### Preinstall Windows / OSX
 
-Please report to the [Windows / MacOS Installation](WindowsMacOS_install)
+Please report to the [Windows / MacOS Installation](WindowsMacOS_install.md)
 
 ### Preinstall Linux
 
-Please report to the [Linux](Linux_install)
+Please report to the [Linux](Linux_install.md)
 
 ### Setup
 
