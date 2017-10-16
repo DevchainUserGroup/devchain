@@ -16,8 +16,6 @@ Vagrant will automatically setup a virtual machine for you.
 
 		git clone https://github.com/DevchainUserGroup/environment.git
 
-1. Configure your geth node name, edit [./environment/docker/geth/env.sh](./docker/geth/env.sh)
-
 1. Check you have 10 Go spaces on your drive.
 
 1. Run the Vagrant image:
