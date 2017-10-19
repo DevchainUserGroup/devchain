@@ -14,7 +14,7 @@ services:
       - "10003:30303"
 
   geth-dev:
-    image: ethereum/client-go:v1.7.1
+    image: ethereum/client-go:v1.7.2
     command: ["--datadir", "/root/.ethereum", "--nodiscover", "--maxpeers", "0", "--networkid", "1337",
       "--rpc", "--rpcaddr", "0.0.0.0", "--rpccorsdomain", "*", "--ws", "--wsaddr", "0.0.0.0", "--wsorigins", "*", "--unlock", "0,1,2", "--password", "/root/.ethereum/coinbase_pwd.txt",
       "--mine", "--minerthreads", "1", "--dev"]

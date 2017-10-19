@@ -1,7 +1,7 @@
 # Copyright 2017 - Dechain User Group
 # Ethereum Smart-Contracts polygon
 
-FROM ethereum/solc:0.4.17
+FROM ethereum/solc:0.4.18
 LABEL name=eth-polygon
 
 RUN apk add --update bash vim emacs-nox less tree sudo tmux curl tig \
@@ -29,7 +29,7 @@ RUN echo "installing jshon" \
 	&& git clone https://github.com/dapphub/seth.git \
 	&& cd seth && git checkout 0ad3330
 
-RUN yarn global add ethereumjs-testrpc@4.0.1 truffle@3.4.6
+RUN yarn global add ethereumjs-testrpc@4.1.3 truffle@3.4.11
 
 EXPOSE 8545
 ENTRYPOINT ["/bin/bash"]
