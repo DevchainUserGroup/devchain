@@ -11,6 +11,11 @@ Please join our slack group: [geneva-devchain](https://geneva-devchain.slack.com
 
 Please follow the [Windows / MacOS pre installation](WindowsMacOS_install.md)
 
+All the docker entry commands are inside the [Makefile](https://github.com/DevchainUserGroup/environment/docker/Makefile). Please make familiar with the content of this file.
+
+If you are Linux user then please skip the Vagrant installation part. Go directly to Docker.
+
+
 ### Pre-install Linux
 
 Please follow the [Linux pre installation](Linux_install.md)
@@ -21,7 +26,8 @@ All the docker entry commands are inside the [Makefile](https://github.com/Devch
 
 1. Create a NODENAME file - [./docker/ethnetintel/files/NODENAME](./docker/ethnetintel/files/NODENAME) with your username:
 
-		echo "my-name" > ~/docker/ethnetintel/files/NODENAME
+		cd <this repo directory>/docker  # in vagrant this is ~/docker
+		echo "my-name" > ethnetintel/files/NODENAME
 
 1. Build Images:
 
