@@ -27,14 +27,15 @@ eth-polygon-build:
 	@mkdir -p ../projects
 	@docker-compose build eth-polygon
 
-# runs the container and start bash session
+# runs the container and starts testrpc
 eth-polygon-testrpc:
 	@docker-compose run --no-deps --entrypoint testrpc eth-polygon -m 'bonus salon bracket farm foot face stomach'
 
-# runs the container and start bash session
+# runs the container and start a new bash session
 eth-polygon-bash:
 	@docker-compose run --no-deps --entrypoint bash eth-polygon
 
+# use it to join currently running container in a new bash session
 eth-polygon-join:
 	@docker exec -it `docker ps | grep "eth-polygon" | awk '{print $$1}'` /bin/bash
 

@@ -40,10 +40,12 @@ All the docker entry commands are inside the [Makefile](https://github.com/Devch
 
 		make geth-run
 
-   + Run Geth with eth-net-intelligence-api.
+   + Run Geth with eth-net-intelligence-api. In this case you don't run the `geth-devchain` cointainer because `ethnetintel-devchain` will start a new one for you.
 
 		docker-compose up --build ethnetintel-devchain
 
+
+For those who don't want to install npm modules for development (truffl, testrpc...) we provide the `eth-polygon` container. It will start the `testrpc` on the 8544 port. Please look at the `Makefile` to find more how to access the polygon container.
 
 ## Useful docker commands
 

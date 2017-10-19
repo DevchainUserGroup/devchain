@@ -40,7 +40,7 @@ services:
     volumes:
       - ../projects:/projects
     ports:
-      - "8545:8545"
+      - "8544:8545"
     links:
       - geth-devchain
     user: node
