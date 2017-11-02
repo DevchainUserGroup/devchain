@@ -16,9 +16,8 @@ RUN mkdir /home/node/npm-global /home/node/tools \
     && ln -s /projects /home/node/projects
 # not using npm:    && npm config set prefix /home/node/npm-global \
 
-ENV PATH="/home/node/npm-global/bin:${PATH}"
+ENV PATH="/home/node/npm-global/bin:/home/node/node_modules/.bin:${PATH}"
 WORKDIR /home/node
-COPY ./.inputrc ./.bashrc /home/node/
 
 RUN echo "installing jshon" \
 	&& cd ~/tools \
@@ -29,7 +28,8 @@ RUN echo "installing jshon" \
 	&& git clone https://github.com/dapphub/seth.git \
 	&& cd seth && git checkout 0ad3330
 
-RUN yarn global add ethereumjs-testrpc@4.1.3 truffle@3.4.11
+COPY ./.inputrc ./.bashrc ./package.json /home/node/
+RUN cd ~/tools && yarn install
 
 EXPOSE 8545
 ENTRYPOINT ["/bin/bash"]
