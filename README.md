@@ -3,9 +3,17 @@
 
 This package provides docker image and scripts to run private Ethereum blockchain.
 
-## Slack
+## Community
 
-Please join our slack group: [geneva-devchain](https://geneva-devchain.slack.com).
+* [Slack geneva-devchain](https://geneva-devchain.slack.com).
+* [Facebook](https://www.facebook.com/geneva.devchain/)
+* [meetup](https://www.meetup.com/Geneva-DevChain-UserGroup)
+
+#### Associated meetups
+
+* [ICOchain](https://www.meetup.com/ICOChain/), [Facebook](https://www.facebook.com/ICOChain-350675808718733/)
+
+## Setup
 
 ### Pre-install Windows / OSX
 
@@ -38,33 +46,37 @@ All the docker entry commands are inside the [Makefile](https://github.com/Devch
    This can be achieve either ways:
    + Geth stand alone
 
-		make geth-run
+			make geth-run
 
    + Run Geth with eth-net-intelligence-api. In this case you don't run the `geth-devchain` cointainer because `ethnetintel-devchain` will start a new one for you.
 
-		docker-compose up --build ethnetintel-devchain
+			docker-compose up --build ethnetintel-devchain
 
 
-For those who don't want to install npm modules for development (truffl, testrpc...) we provide the `eth-polygon` container. It will start the `testrpc` on the 8544 port. Please look at the `Makefile` to find more how to access the polygon container.
+### Truffle (Solidity Development)
 
-## Useful docker commands
+Please follow the description in [truffle/README.md](truffle/README.md)
+
+## Useful commands
+
+### docker
 
 + List docker image
 
-	sudo docker image list
+		sudo docker image list
 
 + List docker container
 
-	sudo docker container list
+		sudo docker container list
 
 
 
-## Usefull geth command
+### geth
 
 + Find how to manage your wallet at the [Ethereum Wiki](https://github.com/ethereum/go-ethereum/wiki/Managing-your-accounts)
 
 
-## Usefull truffle command
+### truffle
 
 + Init a project
 
