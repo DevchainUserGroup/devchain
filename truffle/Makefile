@@ -25,7 +25,13 @@ lint: lint-sol lint-js
 
 run-testrpc:
 	@ps -a -o args | grep "^node .*testrpc.*8544" || \
-		testrpc --port 8544 --network-id 9 --gasLimit 0x669f97
+		./node_modules/.bin/testrpc --port 8544 --network-id 9 --gasLimit 0x669f97
 
 test:
-	truffle test
+	@./node_modules/.bin/truffle test
+
+compile:
+	@./node_modules/.bin/truffle compile
+
+deploy:
+	@./node_modules/.bin/truffle deploy
