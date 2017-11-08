@@ -9,7 +9,7 @@
     "babel-eslint": "^8.0.1",
     "eslint-plugin-flowtype": "^2.39.1",
     "ethereumjs-testrpc": "^6.0.1",
-    "solium": "~0.5.5",
+    "solium": "~1.0.4",
     "standard": "^10.0.3",
     "truffle": "^4.0.1"
   },
